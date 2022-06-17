@@ -1,6 +1,12 @@
 
 <div class="container">
     <ul class="list-group list-group-flush">
-      <li class="list-group-item" *ngFor="let task of tasks">{{task}}  <span><button class="btn btn-success" >Terminer</button><button class="btn btn-danger">Supprimer</button></span></li>
+      <li class="list-group-item" *ngFor="let task of tasks">{{task.id}} - {{task.contenu}}  
+        <span><button class="btn btn-success" >Terminer</button><button class="btn btn-danger" (click)="deleteTask(task.id)">Supprimer</button></span>
+      </li>
     </ul>
 </div>
+
+<app-action-component
+  (click)="clear()"
+></app-action-component>

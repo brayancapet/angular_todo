@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskManagerService } from '../task-manager.service';
+import { Task } from '../Task';
 
 @Component({
   selector: 'app-task-container',
@@ -8,7 +9,7 @@ import { TaskManagerService } from '../task-manager.service';
 })
 export class TaskContainerComponent implements OnInit {
 
-  tasks: string[] = [];
+  tasks: Task[] = [];
 
   constructor(private taskManager: TaskManagerService) { }
 
@@ -20,5 +21,13 @@ export class TaskContainerComponent implements OnInit {
    this.tasks = this.taskManager.getTasks();
   }
 
-  
+  clear(){
+    this.tasks = this.taskManager.clearTasks();
+  }
+
+  deleteTask(id: number){
+    for(let i = 0; i < this.tasks.length; i++){
+      id === this.tasks[i].id ? this.tasks.splice(i, 1) : console.log('Keep looking');
+    }
+  }
 }

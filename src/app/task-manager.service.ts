@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Task } from './Task';
 
 
 @Injectable({
@@ -6,13 +7,28 @@ import { Injectable } from '@angular/core';
 })
 export class TaskManagerService {
 
-tasks = [
-    'Learn to code',
-    'Practice combat sport',
-    'Play video games',
-    'Listen to music',
-    'Clean my appartment '
-];
+  tasks: Task[] = [
+    { 
+      id: 0,
+      contenu: 'Learn to code'
+    },
+    {
+      id: 1,
+      contenu: 'Practice combat sport'
+    },
+    {
+      id: 2,
+      contenu: 'Play video games'
+    },
+    {
+      id: 3,
+      contenu: 'Listen to music'
+    },
+    {
+      id: 4,
+      contenu: 'Clean my appartment'
+    }
+  ];
 
   constructor() { }
 

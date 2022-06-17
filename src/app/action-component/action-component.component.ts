@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { TaskManagerService } from '../task-manager.service';
 
 @Component({
   selector: 'app-action-component',
@@ -8,8 +7,7 @@ import { TaskManagerService } from '../task-manager.service';
 })
 export class ActionComponentComponent implements OnInit {
 
-  tasks : string[] = [];
-  constructor(private taskManager: TaskManagerService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
