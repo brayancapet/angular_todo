@@ -3,7 +3,7 @@ li{
     justify-content: space-between;
 }
 
-span{
+.span-button{
    width: 20%;
    display: flex;
    justify-content: space-evenly;
@@ -11,4 +11,13 @@ span{
 
 .done{
     text-decoration: line-through;
+}
+
+.btnContainer{
+    display: flex;
+    justify-content: center;
+}
+
+button{
+    margin-top: 3%;
 }

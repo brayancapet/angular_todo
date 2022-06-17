@@ -1,4 +1,5 @@
 export interface Task{
     id: number,
-    contenu: string
+    contenu: string,
+    fait: boolean
 }

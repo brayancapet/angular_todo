@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 
 @Component({
@@ -7,8 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-task-form.component.scss']
 })
 export class AddTaskFormComponent implements OnInit {
+  tasks: string[] = [];
 
-  task: string[] = [];
+  @Output() newTask = new EventEmitter<string>();
 
   constructor() { }
 
@@ -16,7 +17,7 @@ export class AddTaskFormComponent implements OnInit {
   }
 
   addTask(inputValue: string){
-    this.task.push(inputValue);
+    this.newTask.emit(inputValue);
   }
 
 }

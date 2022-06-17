@@ -9,24 +9,29 @@ export class TaskManagerService {
 
   tasks: Task[] = [
     { 
-      id: 0,
-      contenu: 'Learn to code'
-    },
-    {
       id: 1,
-      contenu: 'Practice combat sport'
+      contenu: 'Learn to code',
+      fait: false
     },
     {
       id: 2,
-      contenu: 'Play video games'
+      contenu: 'Practice combat sport',
+      fait: false
     },
     {
       id: 3,
-      contenu: 'Listen to music'
+      contenu: 'Play video games',
+      fait: false
     },
     {
       id: 4,
-      contenu: 'Clean my appartment'
+      contenu: 'Listen to music',
+      fait: false
+    },
+    {
+      id: 5,
+      contenu: 'Clean my appartment',
+      fait: false
     }
   ];
 

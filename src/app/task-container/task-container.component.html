@@ -1,12 +1,14 @@
+<app-add-task-form (newTask)="addTask($event)"></app-add-task-form>
 
 <div class="container">
     <ul class="list-group list-group-flush">
-      <li class="list-group-item" *ngFor="let task of tasks">{{task.id}} - {{task.contenu}}  
-        <span><button class="btn btn-success" >Terminer</button><button class="btn btn-danger" (click)="deleteTask(task.id)">Supprimer</button></span>
+      <li class="list-group-item" *ngFor="let task of tasks">
+        <span class="span-contenu" [ngClass]="task.fait == true ? 'done' : 'notDone' ">{{task.id}} - {{task.contenu}}</span>  
+        <span class="span-button"><button class="btn btn-success" (click)="toggleCheck(task.id)">Terminer</button><button class="btn btn-danger" (click)="deleteTask(task.id)">Supprimer</button></span>
       </li>
     </ul>
 </div>
 
-<app-action-component
-  (click)="clear()"
-></app-action-component>
+<div class="btnContainer">
+  <button class="btn btn-warning" (click)="clear()">Tout effacer</button>
+</div>
