@@ -1,13 +1,20 @@
 <app-add-task-form (newTask)="addTask($event)"></app-add-task-form>
 
-<div class="container">
-    <ul class="list-group list-group-flush">
+<div class="container" *ngIf="tasks.length > 0; else elseBlock">
+    <ul class="list-group list-group-flush" >
       <li class="list-group-item" *ngFor="let task of tasks">
         <span class="span-contenu" [ngClass]="task.fait == true ? 'done' : 'notDone' ">{{task.id}} - {{task.contenu}}</span>  
         <span class="span-button"><button class="btn btn-success" (click)="toggleCheck(task.id)">Terminer</button><button class="btn btn-danger" (click)="deleteTask(task.id)">Supprimer</button></span>
       </li>
     </ul>
 </div>
+<ng-template #elseBlock>
+  <div class="container alternativeTask">
+    <h2>Nothing planned..</h2>
+    <h3>Time to start something !</h3>
+    <img src="../../assets/images/undraw_Team_up_re_wadf.png" alt="Placeholder picture of a woman and a man waiting as they are bored.">
+  </div>
+</ng-template>
 
 <div class="btnContainer">
   <button class="btn btn-warning" (click)="clear()">Tout effacer</button>

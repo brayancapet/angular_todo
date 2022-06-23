@@ -18,24 +18,25 @@ export class TaskContainerComponent implements OnInit {
   }
 
   getTasks(){
-   this.tasks = this.taskManager.getTasks();
+  this.tasks = JSON.parse(localStorage.getItem('tasks') || '{}');
   }
 
   clear(){
     this.tasks = this.taskManager.clearTasks();
+    this.saveToLocalStorage();
   }
 
   deleteTask(id: number){
     for(let i = 0; i < this.tasks.length; i++){
       id === this.tasks[i].id ? this.tasks.splice(i, 1) : console.log('Keep looking');
     }
+    this.saveToLocalStorage();
   }
 
   toggleCheck(id: number){
     for(let i = 0; i < this.tasks.length; i++){
       if(id == this.tasks[i].id){
         this.tasks[i].fait == false ? this.tasks[i].fait = true : this.tasks[i].fait = false;
-        console.log(this.tasks[i]);
       } 
     }
   }
@@ -60,8 +61,15 @@ export class TaskContainerComponent implements OnInit {
     }
 
     this.tasks.push(temporaryTask);
+    this.saveToLocalStorage();
     return this.tasks;
     
+    
+  }
+
+  saveToLocalStorage(){
+    let taskStorage = this.tasks;
+    localStorage.setItem('tasks', JSON.stringify(taskStorage)); 
   }
 
 

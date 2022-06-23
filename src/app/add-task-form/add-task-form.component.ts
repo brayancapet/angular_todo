@@ -18,6 +18,10 @@ export class AddTaskFormComponent implements OnInit {
 
   addTask(inputValue: string){
     this.newTask.emit(inputValue);
+    
   }
 
+  eraseInputValue(input: any){
+    input.value = '';
+  }
 }
