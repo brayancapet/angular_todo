@@ -11,6 +11,12 @@ export class TaskContainerComponent implements OnInit {
 
   tasks: Task[] = [];
 
+  selectedTask: Task = {
+    id: 0,
+    contenu: '',
+    fait: false
+  };
+
   constructor(private taskManager: TaskManagerService) { }
 
   ngOnInit() {
@@ -39,6 +45,7 @@ export class TaskContainerComponent implements OnInit {
         this.tasks[i].fait == false ? this.tasks[i].fait = true : this.tasks[i].fait = false;
       } 
     }
+    this.saveToLocalStorage();
   }
 
   addTask(newTask: string){
@@ -73,4 +80,14 @@ export class TaskContainerComponent implements OnInit {
   }
 
 
+  generateModalText(id: number){
+    for(let i = 0; i < this.tasks.length; i++){
+      id == this.tasks[i].id ? this.selectedTask = this.tasks[i] : console.log('ahah');
+    }
+    console.log(this.selectedTask);
+  }
+
+  sauvegardeModal(){
+    this.saveToLocalStorage();
+  }
 }

@@ -1,6 +1,7 @@
 li{
     display: flex;
     justify-content: space-between;
+    width: 100%;
 }
 
 .span-button{
@@ -33,4 +34,30 @@ button{
 img{
     height: 25rem;
     width: auto;
+}
+
+li{
+    cursor: pointer;
+}
+
+.button-container{
+    width: 20%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.z-index{
+    z-index: 50;
+}
+
+.modalContainer{
+    height: 80vh;
+    width: 80vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #25242a;
+    color: #fff;
+    font-size: 25px;
 }

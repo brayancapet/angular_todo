@@ -3,18 +3,39 @@
 <div class="container" *ngIf="tasks.length > 0; else elseBlock">
     <ul class="list-group list-group-flush" >
       <li class="list-group-item" *ngFor="let task of tasks">
-        <span class="span-contenu" [ngClass]="task.fait == true ? 'done' : 'notDone' ">{{task.id}} - {{task.contenu}}</span>  
-        <span class="span-button"><button class="btn btn-success" (click)="toggleCheck(task.id)">Terminer</button><button class="btn btn-danger" (click)="deleteTask(task.id)">Supprimer</button></span>
+        <span class="span-contenu" [ngClass]="task.fait == true ? 'done' : 'notDone' " (click)="toggleCheck(task.id)">{{task.id}} - {{task.contenu}}</span>  
+        <div class="button-container">
+          <button type="button" class="btn btn-danger" (click)="deleteTask(task.id)">Delete</button>
+          <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="generateModalText(task.id)">Edit</button>
+        </div>
       </li>
     </ul>
 </div>
 <ng-template #elseBlock>
   <div class="container alternativeTask">
     <h2>Nothing planned..</h2>
-    <h3>Time to start something !</h3>
+    <h4>Time to start something !</h4>
     <img src="../../assets/images/undraw_Team_up_re_wadf.png" alt="Placeholder picture of a woman and a man waiting as they are bored.">
   </div>
 </ng-template>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <input value="{{this.selectedTask.contenu}}" class="form-control" [(ngModel)]="this.selectedTask.contenu">
+        <p>Status : {{this.selectedTask.fait == false ? 'à terminer' : 'tâche accomplie'}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="sauvegardeModal()">Sauvegarder</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="btnContainer">
   <button class="btn btn-warning" (click)="clear()">Tout effacer</button>

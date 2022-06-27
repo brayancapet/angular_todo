@@ -13,7 +13,7 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     AddTaskFormComponent,
     TaskContainerComponent,
-    HeaderComponent
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
