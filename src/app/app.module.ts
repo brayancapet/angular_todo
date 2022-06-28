@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddTaskFormComponent } from './add-task-form/add-task-form.component';
 import { TaskContainerComponent } from './task-container/task-container.component';
-import { HeaderComponent } from './header/header.component';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -13,7 +12,6 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     AddTaskFormComponent,
     TaskContainerComponent,
-    HeaderComponent,
   ],
   imports: [
     BrowserModule,

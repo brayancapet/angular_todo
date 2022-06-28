@@ -61,3 +61,36 @@ li{
     color: #fff;
     font-size: 25px;
 }
+
+.nightModeOn{
+    background-color: #25242a;
+    color: #fff;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.full-container{
+    width: 100vw;
+    height: 100vh;
+}
+
+.nightModeOn{
+    .header-container{
+        background-color: #25242a;
+        color: #fff;
+    }
+
+    li{
+        background-color: #25242a;
+        color: #fff;
+    }
+
+    .btnContainer{
+        background-color: #25242a;
+    }
+}

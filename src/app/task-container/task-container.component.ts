@@ -17,14 +17,21 @@ export class TaskContainerComponent implements OnInit {
     fait: false
   };
 
+  nightMode: boolean = false;
+
   constructor(private taskManager: TaskManagerService) { }
 
   ngOnInit() {
     this.getTasks();
+    this.getNightMode();
   }
 
   getTasks(){
   this.tasks = JSON.parse(localStorage.getItem('tasks') || '{}');
+  }
+
+  getNightMode(){
+    this.nightMode = JSON.parse(localStorage.getItem('nightMode') || '{}');
   }
 
   clear(){
@@ -89,5 +96,15 @@ export class TaskContainerComponent implements OnInit {
 
   sauvegardeModal(){
     this.saveToLocalStorage();
+  }
+
+  stateChange(){
+    if(this.nightMode == false){
+      this.nightMode = true;
+      localStorage.setItem('nightMode', JSON.stringify(this.nightMode));
+    } else if(this.nightMode == true){
+      this.nightMode = false;
+      localStorage.setItem('nightMode', JSON.stringify(this.nightMode));
+    }
   }
 }
