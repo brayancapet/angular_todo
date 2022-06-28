@@ -14,7 +14,8 @@ export class TaskContainerComponent implements OnInit {
   selectedTask: Task = {
     id: 0,
     contenu: '',
-    fait: false
+    fait: false,
+    importance: ''
   };
 
   nightMode: boolean = false;
@@ -60,7 +61,8 @@ export class TaskContainerComponent implements OnInit {
     let temporaryTask = {
       id: 0,
       contenu: '',
-      fait: false
+      fait: false,
+      importance: ''
     };
 
     if(this.tasks.length !== 0){

@@ -1,6 +1,12 @@
 <div class="container">
     <div class="input-group mb-3">
         <input type="text" class="form-control" placeholder="Tâches à réaliser.." aria-label="Tâches à réaliser" aria-describedby="button-addon2" (keydown.enter)="[addTask(taskInput.value), eraseInputValue(taskInput)]" #taskInput>
+        <select class="form-select" aria-label="Default select example" #selectInput>
+            <option selected>choisir importance</option>
+            <option *ngFor="let importance of importanceType" value="{{importance}}">
+                {{importance}}
+            </option>
+        </select>
         <button class="btn btn-success" type="button" id="button-addon2" (click)="[addTask(taskInput.value), eraseInputValue(taskInput)]">Ajouter</button>
     </div>
 </div>
