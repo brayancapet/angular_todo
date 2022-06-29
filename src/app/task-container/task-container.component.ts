@@ -67,13 +67,19 @@ export class TaskContainerComponent implements OnInit {
 
     if(this.tasks.length !== 0){
       temporaryTask.id = this.tasks.slice(-1)[0].id + 1;
-      temporaryTask.contenu = newTask;
+      let newTaskSplit = newTask.split(' ');
+      temporaryTask.importance = newTaskSplit.slice(-1)[0];
+      temporaryTask.contenu = newTaskSplit.slice(0, -1).join(' ');
       temporaryTask.fait = false;
+      console.log(temporaryTask);
     } else {
       console.log('liste vide');
       temporaryTask.id = 1;
-      temporaryTask.contenu = newTask;
+      let newTaskSplit = newTask.split(' ');
+      temporaryTask.importance = newTaskSplit.slice(-1)[0];
+      temporaryTask.contenu = newTaskSplit.slice(0, -1).join(' ');
       temporaryTask.fait = false;
+      console.log(temporaryTask);
     }
 
     this.tasks.push(temporaryTask);

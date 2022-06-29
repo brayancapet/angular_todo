@@ -36,7 +36,7 @@ img{
     width: auto;
 }
 
-li{
+.task-contenu{
     cursor: pointer;
 }
 
@@ -97,4 +97,15 @@ li{
     .btnContainer{
         background-color: #25242a;
     }
+}
+
+.importance-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-action button{
+    margin-left: 10px;
+    margin-right: 10px;
 }

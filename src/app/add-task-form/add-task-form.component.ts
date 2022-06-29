@@ -12,20 +12,32 @@ export class AddTaskFormComponent implements OnInit {
   @Output() newTask = new EventEmitter<string>();
 
   importanceType = [
-    'négligeable',
-    'à faire',
-    'important',
-    'très important'
-  ]
-
+    {
+      nom:'négligeable', 
+      value: 'negligeable'
+    },
+    {
+      nom: 'à faire',
+      value: 'a_faire'
+    },
+    {
+      nom: 'important',
+      value: 'important'
+    },
+    {
+      nom: 'très important',
+      value: 'tres_important'
+    }
+  ];
+  
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  addTask(inputValue: string){
-    
-    this.newTask.emit(inputValue);
+  addTask(inputValue: string, importance: string){
+    console.log(importance);
+    this.newTask.emit(inputValue + ' ' + importance);
   }
 
   eraseInputValue(input: any){
