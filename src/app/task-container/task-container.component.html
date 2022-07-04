@@ -16,13 +16,13 @@
     <table class="table" [ngClass]="nightMode == true ? 'table-dark bg-dark' : 'nightModeOff'">
       <tbody>
         <tr *ngFor="let task of tasks">
-          <th scope="row">{{task.id}}</th>
-          <td (click)="toggleCheck(task.id)" [ngClass]="task.fait == true ? 'done' : 'not-done'" class="task-contenu">{{task.contenu}}</td>
+          <th scope="row" [ngClass]="task.onHold == true ? 'onHold' : 'notOnHold'">{{task.id}}</th>
+          <td (click)="toggleCheck(task.id)" [ngClass]="task.fait == true ? 'done' : 'not-done'" [ngClass]="task.onHold == true ? 'onHold' : 'notOnHold'" class="task-contenu">{{task.contenu}}</td>
           <td *ngIf="task.importance == 'negligeable'"><button class="btn btn-outline-success">négligeable</button></td>
           <td *ngIf="task.importance == 'a_faire'" ><button class="btn btn-outline-secondary">à faire</button></td>
           <td *ngIf="task.importance == 'important'"><button class="btn btn-outline-warning">important</button></td>
           <td *ngIf="task.importance == 'tres_important'"><button class="btn btn-outline-danger">très important</button></td>
-          <td class="btn-action"><span><button type="button" class="btn btn-danger" (click)="deleteTask(task.id)">Delete</button></span><span><button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="generateModalText(task.id)">Edit</button></span></td>
+          <td class="btn-action"><span><button type="button" class="btn btn-danger" (click)="deleteTask(task.id)">Delete</button></span><span><button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="generateModalText(task.id)">Edit</button></span><span><button class="btn btn-warning onHoldBtn" *ngIf="task.onHold == false" (click)="switchOnHoldStatus(task)">Pause</button></span><span><button class="btn btn-warning onHoldBtn" *ngIf="task.onHold == true" (click)="switchOnHoldStatus(task)">Reprendre</button></span></td>
         </tr>
       </tbody>
     </table>
@@ -46,6 +46,10 @@
         <div class="modal-body">
           <input value="{{this.selectedTask.contenu}}" class="form-control" [(ngModel)]="this.selectedTask.contenu">
           <p [ngClass]="nightMode == true ? 'white-black-font' : 'nullll'" style="padding-top: 10px;">Status : {{this.selectedTask.fait == false ? 'à terminer' : 'tâche accomplie'}}</p>
+          <button class="btn btn-outline-success" *ngIf="this.selectedTask.importance == 'negligeable'">négligeable</button>
+          <button class="btn btn-outline-secondary" *ngIf="this.selectedTask.importance == 'a_faire'">à faire</button>
+          <button class="btn btn-outline-warning" *ngIf="this.selectedTask.importance == 'important'">important</button>
+          <button class="btn btn-outline-danger" *ngIf="this.selectedTask.importance == 'tres_important'">très important</button>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="sauvegardeModal()">Sauvegarder</button>

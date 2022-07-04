@@ -12,31 +12,36 @@ export class TaskManagerService {
       id: 1,
       contenu: 'Learn to code',
       fait: false,
-      importance: ''
+      importance: '',
+      onHold: false
     },
     {
       id: 2,
       contenu: 'Practice combat sport',
       fait: false,
-      importance: ''
+      importance: '',
+      onHold: false
     },
     {
       id: 3,
       contenu: 'Play video games',
       fait: false,
-      importance: ''
+      importance: '',
+      onHold: false
     },
     {
       id: 4,
       contenu: 'Listen to music',
       fait: false,
-      importance: ''
+      importance: '',
+      onHold: false
     },
     {
       id: 5,
       contenu: 'Clean my appartment',
       fait: false,
-      importance: ''
+      importance: '',
+      onHold: false
     }
   ];
 

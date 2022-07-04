@@ -15,7 +15,8 @@ export class TaskContainerComponent implements OnInit {
     id: 0,
     contenu: '',
     fait: false,
-    importance: ''
+    importance: '',
+    onHold: false
   };
 
   nightMode: boolean = false;
@@ -62,7 +63,8 @@ export class TaskContainerComponent implements OnInit {
       id: 0,
       contenu: '',
       fait: false,
-      importance: ''
+      importance: '',
+      onHold: false
     };
 
     if(this.tasks.length !== 0){
@@ -114,5 +116,15 @@ export class TaskContainerComponent implements OnInit {
       this.nightMode = false;
       localStorage.setItem('nightMode', JSON.stringify(this.nightMode));
     }
+  }
+
+  switchOnHoldStatus(tache: Task){
+    if(tache.onHold == true){
+      tache.onHold = false;
+    } else if(tache.onHold == false){
+      tache.onHold = true;
+    }
+    console.log(tache.onHold);
+    this.saveToLocalStorage();
   }
 }
