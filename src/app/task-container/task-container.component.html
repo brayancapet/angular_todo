@@ -1,6 +1,6 @@
 <div class="full-container" [ngClass]="nightMode == true ? 'nightModeOn' : 'nightModeOff'">
 
-  <div class="card mb-3 header-container">
+  <div class="card mb-3 header-container" id="contain">
     <div class="card-body">
       <h5 class="card-title">Ma To Do List</h5>
       <p class="card-text">Ajoutez vos tâches ici, gérez-les et débarrassez-vous en.</p>
@@ -8,6 +8,7 @@
       <button type="button" class="btn btn-warning" *ngIf="nightMode == false" (click)="stateChange()">night mode</button>
       <button type="button" class="btn btn-warning" *ngIf="nightMode == true" (click)="stateChange()">day mode</button>
     </div>
+    <img src="../../assets/gif/animated-charizard.gif" alt="Animated Charizard from ">
   </div>
   
   <app-add-task-form (newTask)="addTask($event)"></app-add-task-form>

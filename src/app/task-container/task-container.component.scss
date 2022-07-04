@@ -121,3 +121,19 @@ img{
 .onHoldBtn {
     width: 110px;
 }
+
+.header-container img{
+    height: 30%;
+    width: auto;
+}
+
+#contain{
+    display: flex;
+}
+
+.card-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
