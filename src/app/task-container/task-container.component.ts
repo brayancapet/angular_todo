@@ -19,6 +19,35 @@ export class TaskContainerComponent implements OnInit {
     onHold: false
   };
 
+  pokemon_gif: string[] = [
+    '../../assets/gif/animated-charizard.gif',
+    '../../assets/gif/blastoise.gif',
+    '../../assets/gif/lokhlass.gif',
+    '../../assets/gif/magicarp.gif',
+    '../../assets/gif/mew.gif',
+    '../../assets/gif/evoli.gif',
+    '../../assets/gif/roitiflamme.gif',
+    '../../assets/gif/ours.gif',
+    '../../assets/gif/plante.gif',
+    '../../assets/gif/poing.gif',
+    '../../assets/gif/glali.gif',
+    '../../assets/gif/scizor.gif',
+    '../../assets/gif/froslass.gif',
+    '../../assets/gif/swoobat.gif',
+    '../../assets/gif/abra.gif',
+    '../../assets/gif/tyranocif.gif',
+    '../../assets/gif/dialga.gif',
+    '../../assets/gif/groudon.gif',
+    '../../assets/gif/palkia.gif',
+    '../../assets/gif/suicune.gif',
+    '../../assets/gif/ninetales.gif',
+    '../../assets/gif/zoroark.gif',
+    '../../assets/gif/megaLucario.gif'
+  ];
+
+  selectedPokemonGif = '';
+
+
   nightMode: boolean = false;
 
   constructor(private taskManager: TaskManagerService) { }
@@ -26,6 +55,7 @@ export class TaskContainerComponent implements OnInit {
   ngOnInit() {
     this.getTasks();
     this.getNightMode();
+    this.randomPokemon();
   }
 
   getTasks(){
@@ -58,7 +88,6 @@ export class TaskContainerComponent implements OnInit {
   }
 
   addTask(newTask: string){
-
     let temporaryTask = {
       id: 0,
       contenu: '',
@@ -84,10 +113,19 @@ export class TaskContainerComponent implements OnInit {
       console.log(temporaryTask);
     }
 
-    this.tasks.push(temporaryTask);
-    this.saveToLocalStorage();
-    return this.tasks;
-    
+    console.log(temporaryTask.importance);
+    if(temporaryTask.importance !== 'importance' && temporaryTask.contenu !== ''){
+      this.tasks.push(temporaryTask);
+      this.saveToLocalStorage();
+      return this.tasks;
+    } 
+
+    if(temporaryTask.importance == 'importance'){
+      alert("Veuillez définir l'importance de la tâche s'il vous plaît.");
+    }
+    if(temporaryTask.contenu == ''){
+      alert("La tâche ne peut être vide. Veuillez la remplir s'il vous plaît.");
+    }
     
   }
 
@@ -99,7 +137,7 @@ export class TaskContainerComponent implements OnInit {
 
   generateModalText(id: number){
     for(let i = 0; i < this.tasks.length; i++){
-      id == this.tasks[i].id ? this.selectedTask = this.tasks[i] : console.log('ahah');
+      id == this.tasks[i].id ? this.selectedTask = this.tasks[i] : console.log("je n'ai pas trouvé la tâche");
     }
     console.log(this.selectedTask);
   }
@@ -126,5 +164,20 @@ export class TaskContainerComponent implements OnInit {
     }
     console.log(tache.onHold);
     this.saveToLocalStorage();
+  }
+
+  randomPokemon(){
+   let random = Math.floor(Math.random() * (this.pokemon_gif.length - 1));
+
+   console.log(random);
+   this.selectedPokemonGif = this.pokemon_gif[random];
+   console.log(this.selectedPokemonGif);
+  }
+
+  changeImportance(importance: string, id: number){
+    for(let i = 0; i < this.tasks.length; i++){
+      id == this.tasks[i].id ? this.selectedTask.importance = importance : console.log('mistake');
+    } 
+    console.log(this.selectedTask);
   }
 }
