@@ -27,14 +27,12 @@ export class TaskContainerComponent implements OnInit {
     '../../assets/gif/magicarp.gif',
     '../../assets/gif/mew.gif',
     '../../assets/gif/evoli.gif',
-    '../../assets/gif/roitiflamme.gif',
     '../../assets/gif/ours.gif',
     '../../assets/gif/plante.gif',
     '../../assets/gif/poing.gif',
     '../../assets/gif/glali.gif',
     '../../assets/gif/scizor.gif',
     '../../assets/gif/froslass.gif',
-    '../../assets/gif/swoobat.gif',
     '../../assets/gif/abra.gif',
     '../../assets/gif/tyranocif.gif',
     '../../assets/gif/dialga.gif',
@@ -43,7 +41,16 @@ export class TaskContainerComponent implements OnInit {
     '../../assets/gif/suicune.gif',
     '../../assets/gif/ninetales.gif',
     '../../assets/gif/zoroark.gif',
-    '../../assets/gif/megaLucario.gif'
+    '../../assets/gif/megaLucario.gif',
+    '../../assets/gif/boreas.gif',
+    '../../assets/gif/arceus.gif',
+    '../../assets/gif/deoxys.gif',
+    '../../assets/gif/deoxys2.gif',
+    '../../assets/gif/darkrai.gif',
+    '../../assets/gif/giratina.gif',
+    '../../assets/gif/carchacroc.gif',
+    '../../assets/gif/yveltal.gif',
+    '../../assets/gif/libegon.gif'
   ];
 
   selectedPokemonGif = '';
