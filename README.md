@@ -11,7 +11,7 @@
 * Put the task on pause and resume it if needed,
 * Delete a task as well as clearing all tasks,
 * Obviously, all the tasks, their content, state, importance etc. are stored in your computer's local storage.
-3. You'll have the choice between night mode or day mode, which will be stored in your local storage as well so that you have your own preerences stored.
+3. You'll have the choice between night mode or day mode, which will be stored in your local storage as well so that you have your own preferences stored.
 4. A random pokemon will give you its strength by staying at the top of the page, and it will change everytime you reload the page/open the project.
 
 ## What if i want to use this to-do-list for my personal use ?
