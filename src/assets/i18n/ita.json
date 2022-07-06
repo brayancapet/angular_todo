@@ -6,7 +6,7 @@
         "nightmode_button": "night mode"
     },
     "form": {
-        "input_placeholder": "compiti da svolgere",
+        "input_placeholder": "Compiti da svolgere..",
         "choose_importance": "selezionare l'importanza",
         "add_button": "Aggiungere",
         "delete_button": "Eliminare",
