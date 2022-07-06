@@ -25,7 +25,7 @@ export class AddTaskFormComponent implements OnInit {
       value: 'important'
     },
     {
-      nom: 'très important',
+      nom: `{{ 'importance.very_important' | translate }}`,
       value: 'tres_important'
     }
   ];

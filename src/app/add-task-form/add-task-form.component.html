@@ -1,12 +1,13 @@
 <div class="container">
     <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Tâches à réaliser.." aria-label="Tâches à réaliser" aria-describedby="button-addon2" (keydown.enter)="[addTask(taskInput.value, selectInput.value), eraseInputValue(taskInput)]" #taskInput>
+        <input type="text" class="form-control" placeholder="{{ 'form.input_placeholder' | translate }}" aria-label="Tâches à réaliser" aria-describedby="button-addon2" (keydown.enter)="[addTask(taskInput.value, selectInput.value), eraseInputValue(taskInput)]" #taskInput>
         <select class="form-select" aria-label="Default select example" #selectInput>
-            <option selected>choisir importance</option>
-            <option *ngFor="let importance of importanceType" value="{{importance.value}}">
-                {{importance.nom}}
-            </option>
+            <option selected>{{ 'form.choose_importance' | translate }}</option>
+            <option value="a_faire">{{ 'importance.a_faire' | translate }}</option>
+            <option value="negligeable">{{ 'importance.negligeable' | translate }}</option>
+            <option value="important">{{ 'importance.important' | translate }}</option>
+            <option value="tres_important">{{ 'importance.tres_important' | translate }}</option>
         </select>
-        <button class="btn btn-success" type="button" id="button-addon2" (click)="[addTask(taskInput.value, selectInput.value), eraseInputValue(taskInput)]">Ajouter</button>
+        <button class="btn btn-success" type="button" id="button-addon2" (click)="[addTask(taskInput.value, selectInput.value), eraseInputValue(taskInput)]">{{ 'form.add_button' | translate }}</button>
     </div>
 </div>

@@ -1,0 +1,37 @@
+{
+    "header": {
+        "title": "Ma To Do List",
+        "subtitle": "Ajoutez vos tâches ici, gérez-les et débarrassez-vous en.",
+        "daymode_button": "day mode",
+        "nightmode_button": "night mode"
+    },
+    "form": {
+        "input_placeholder": "Tâches à réaliser..",
+        "choose_importance": "choisir importance",
+        "add_button": "Ajouter",
+        "delete_button": "Supprimer",
+        "edit_button": "Modifier",
+        "pause_button": "Pause",
+        "resume_button": "Reprendre",
+        "clear_button": "Tout effacer"
+    },
+    "importance": {
+        "a_faire": "à faire",
+        "negligeable": "négligeable",
+        "important": "important",
+        "tres_important": "très important"
+    },
+    "modal": {
+        "title": "Titre tâche :",
+        "status": "Status :",
+        "sauvegarder": "Sauvegarder"
+    },
+    "else_block": {
+        "title": "Rien de prévu..",
+        "subtitle": "Il est temps de commencer quelque chose"
+    },
+    "task": {
+        "finie": "tâche accomplie",
+        "a_finir": "à terminer"
+    }
+}

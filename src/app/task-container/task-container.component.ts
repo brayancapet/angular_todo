@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskManagerService } from '../task-manager.service';
 import { Task } from '../Task';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-task-container',
@@ -50,7 +51,7 @@ export class TaskContainerComponent implements OnInit {
 
   nightMode: boolean = false;
 
-  constructor(private taskManager: TaskManagerService) { }
+  constructor(private taskManager: TaskManagerService, private translate: TranslateService) { }
 
   ngOnInit() {
     this.getTasks();
@@ -113,12 +114,6 @@ export class TaskContainerComponent implements OnInit {
       console.log(temporaryTask);
     }
 
-    console.log(temporaryTask.importance);
-    if(temporaryTask.importance !== 'importance' && temporaryTask.contenu !== ''){
-      this.tasks.push(temporaryTask);
-      this.saveToLocalStorage();
-      return this.tasks;
-    } 
 
     if(temporaryTask.importance == 'importance'){
       alert("Veuillez définir l'importance de la tâche s'il vous plaît.");
@@ -126,7 +121,18 @@ export class TaskContainerComponent implements OnInit {
     if(temporaryTask.contenu == ''){
       alert("La tâche ne peut être vide. Veuillez la remplir s'il vous plaît.");
     }
-    
+
+    if(temporaryTask.importance == "l'importanza"){
+      alert("Seleziona un'importanza");
+    }
+
+    console.log(temporaryTask.importance);
+    if(temporaryTask.importance !== 'importance' && temporaryTask.contenu !== '' && temporaryTask.importance !== "l'importanza" ){
+      this.tasks.push(temporaryTask);
+      this.saveToLocalStorage();
+      return this.tasks;
+    } 
+
   }
 
   saveToLocalStorage(){
@@ -180,4 +186,8 @@ export class TaskContainerComponent implements OnInit {
     } 
     console.log(this.selectedTask);
   }
+
+  useLanguage(language: string): void {
+    this.translate.use(language);
+}
 }

@@ -1,0 +1,37 @@
+{
+    "header": {
+        "title": "Lista Di Cose Da Fare",
+        "subtitle": "Aggiungi le tue attività qui, gestirle e sbarazzartene.",
+        "daymode_button": "day mode",
+        "nightmode_button": "night mode"
+    },
+    "form": {
+        "input_placeholder": "compiti da svolgere",
+        "choose_importance": "selezionare l'importanza",
+        "add_button": "Aggiungere",
+        "delete_button": "Eliminare",
+        "edit_button": "Modificare",
+        "pause_button": "Pausa",
+        "resume_button": "Riprendere",
+        "clear_button": "Cancelare tutto"
+    },
+    "importance": {
+        "a_faire": "da fare",
+        "negligeable": "trascurabile",
+        "important": "importante",
+        "tres_important": "molto importante"
+    },
+    "modal": {
+        "title": "Nome dell'attività :",
+        "status": "Status :",
+        "sauvegarder": "Salvare"
+    },
+    "else_block": {
+        "title": "Non c'è niente in programma..",
+        "subtitle": "È ora di iniziare."
+    },
+    "task": {
+        "finie": "attività completata",
+        "a_finir": "a completare"
+    }
+}

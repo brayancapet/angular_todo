@@ -1,37 +1,44 @@
 <div class="full-container" [ngClass]="nightMode == true ? 'nightModeOn' : 'nightModeOff'">
 
-  <div class="card mb-3 header-container" id="contain">
+  <div class="change-language">
+    <img src="../../assets/images/france.png" alt="france flag" (click)="useLanguage('fra')">
+    <img src="../../assets/images/royaume-uni.png" alt="united kingdom flag" (click)="useLanguage('en')">
+    <img src="../../assets//images/italie.png" alt="italian flag" (click)="useLanguage('ita')">
+  </div>
+  
+  <div class="card mb-3 header-container">
     <div class="card-body">
-      <h5 class="card-title">Ma To Do List</h5>
-      <p class="card-text">Ajoutez vos tâches ici, gérez-les et débarrassez-vous en.</p>
+      <h5 class="card-title">{{ 'header.title' | translate }}</h5>
+      <p class="card-text">{{ 'header.subtitle' | translate }}</p>
       <p class="card-text"><small class="text-muted">Github : @brayancapet</small></p>
-      <button type="button" class="btn btn-warning" *ngIf="nightMode == false" (click)="stateChange()">night mode</button>
-      <button type="button" class="btn btn-warning" *ngIf="nightMode == true" (click)="stateChange()">day mode</button>
+      <button type="button" class="btn btn-warning" *ngIf="nightMode == false" (click)="stateChange()">{{ 'header.nightmode_button' | translate }}</button>
+      <button type="button" class="btn btn-warning" *ngIf="nightMode == true" (click)="stateChange()">{{ 'header.daymode_button' | translate }}</button>
     </div>
     <img src="{{selectedPokemonGif}}" alt="Random Animated Pokemon">
   </div>
   
   <app-add-task-form (newTask)="addTask($event)"></app-add-task-form>
 
-  <div class="container">
+  <div class="container task-container" *ngIf="tasks.length > 0; else elseBlock">
     <table class="table" [ngClass]="nightMode == true ? 'table-dark bg-dark' : 'nightModeOff'">
       <tbody>
-        <tr *ngFor="let task of tasks">
+        <tr *ngFor="let task of tasks" class="table-tr">
           <th scope="row" [ngClass]="task.onHold == true ? 'onHold' : 'notOnHold'">{{task.id}}</th>
           <td (click)="toggleCheck(task.id)" [ngClass]="task.fait == true ? 'done' : 'not-done'" [ngClass]="task.onHold == true ? 'onHold' : 'notOnHold'" class="task-contenu">{{task.contenu}}</td>
-          <td *ngIf="task.importance == 'negligeable'"><button class="btn btn-outline-success importance-btn">négligeable</button></td>
-          <td *ngIf="task.importance == 'a_faire'" ><button class="btn btn-outline-secondary importance-btn">à faire</button></td>
-          <td *ngIf="task.importance == 'important'"><button class="btn btn-outline-warning importance-btn">important</button></td>
-          <td *ngIf="task.importance == 'tres_important'"><button class="btn btn-outline-danger importance-btn">très important</button></td>
-          <td class="btn-action"><span><button type="button" class="btn btn-danger" (click)="deleteTask(task.id)">Delete</button></span><span><button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="generateModalText(task.id)">Edit</button></span><span><button class="btn btn-warning onHoldBtn" *ngIf="task.onHold == false" (click)="switchOnHoldStatus(task)">Pause</button></span><span><button class="btn btn-warning onHoldBtn" *ngIf="task.onHold == true" (click)="switchOnHoldStatus(task)">Reprendre</button></span></td>
+          <td *ngIf="task.importance == 'negligeable'"><button class="btn btn-outline-success importance-btn">{{ 'importance.negligeable' | translate }}</button></td>
+          <td *ngIf="task.importance == 'a_faire'" ><button class="btn btn-outline-secondary importance-btn">{{ 'importance.a_faire' | translate }}</button></td>
+          <td *ngIf="task.importance == 'important'"><button class="btn btn-outline-warning importance-btn">{{ 'importance.important' | translate }}</button></td>
+          <td *ngIf="task.importance == 'tres_important'"><button class="btn btn-outline-danger importance-btn">{{ 'importance.tres_important' | translate }}</button></td>
+          <td class="btn-action"><span><button type="button" class="btn btn-danger" (click)="deleteTask(task.id)">{{ 'form.delete_button' | translate }}</button></span><span><button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="generateModalText(task.id)">{{ 'form.edit_button' | translate }}</button></span><span><button class="btn btn-warning onHoldBtn" *ngIf="task.onHold == false" (click)="switchOnHoldStatus(task)">{{ 'form.pause_button' | translate }}</button></span><span><button class="btn btn-warning onHoldBtn" *ngIf="task.onHold == true" (click)="switchOnHoldStatus(task)">{{ 'form.resume_button' | translate }}</button></span></td>
         </tr>
       </tbody>
     </table>
   </div>
+
   <ng-template #elseBlock>
     <div class="container alternativeTask">
-      <h2>Nothing planned..</h2>
-      <h4>Time to start something !</h4>
+      <h2>{{ 'else_block.title' | translate }}</h2>
+      <h4>{{ 'else_block.subtitle' | translate }}</h4>
       <img src="../../assets/images/undraw_Team_up_re_wadf.png" alt="Placeholder picture of a woman and a man waiting as they are bored." *ngIf="nightMode == false">
       <img src="../../assets/images/undraw_Team_up_re_wadf-removebg-preview.png" alt="Placeholder picture of a woman and a man waiting as they are bored." *ngIf="nightMode == true">
     </div>
@@ -41,34 +48,35 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel" [ngClass]="nightMode == true ? 'white-black-font' : 'nullll'">Titre tâche :</h5>
+          <h5 class="modal-title" id="exampleModalLabel" [ngClass]="nightMode == true ? 'white-black-font' : 'nullll'">{{ 'modal.title' | translate }}</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <input value="{{this.selectedTask.contenu}}" class="form-control" [(ngModel)]="this.selectedTask.contenu">
-          <p [ngClass]="nightMode == true ? 'white-black-font' : 'nullll'" style="padding-top: 10px;">Status : {{this.selectedTask.fait == false ? 'à terminer' : 'tâche accomplie'}}</p>
-          <button class="btn btn-outline-success" *ngIf="this.selectedTask.importance !== 'negligeable'" (click)="changeImportance('negligeable', this.selectedTask.id)">négligeable</button>
-          <button class="btn btn-success" *ngIf="this.selectedTask.importance == 'negligeable'">négligeable</button>
+          <p [ngClass]="nightMode == true ? 'white-black-font' : 'nullll'" style="padding-top: 10px;" *ngIf="this.selectedTask.fait == false">{{ 'modal.status' | translate }} {{ 'task.a_finir' | translate }}</p>
+          <p [ngClass]="nightMode == true ? 'white-black-font' : 'nullll'" style="padding-top: 10px;" *ngIf="this.selectedTask.fait == true">{{ 'modal.status' | translate }} {{ 'task.finie' | translate }}</p>
+          <button class="btn btn-outline-success" *ngIf="this.selectedTask.importance !== 'negligeable'" (click)="changeImportance('negligeable', this.selectedTask.id)">{{ 'importance.negligeable' | translate }}</button>
+          <button class="btn btn-success" *ngIf="this.selectedTask.importance == 'negligeable'">{{ 'importance.negligeable' | translate }}</button>
 
-          <button class="btn btn-outline-secondary" *ngIf="this.selectedTask.importance !== 'a_faire'" (click)="changeImportance('a_faire', this.selectedTask.id)">à faire</button>
-          <button class="btn btn-secondary" *ngIf="this.selectedTask.importance == 'a_faire'">à faire</button>
+          <button class="btn btn-outline-secondary" *ngIf="this.selectedTask.importance !== 'a_faire'" (click)="changeImportance('a_faire', this.selectedTask.id)">{{ 'importance.a_faire' | translate }}</button>
+          <button class="btn btn-secondary" *ngIf="this.selectedTask.importance == 'a_faire'">{{ 'importance.a_faire' | translate }}</button>
 
-          <button class="btn btn-outline-warning" *ngIf="this.selectedTask.importance !== 'important'" (click)="changeImportance('important', this.selectedTask.id)">important</button>
-          <button class="btn btn-warning" *ngIf="this.selectedTask.importance == 'important'">important</button>
+          <button class="btn btn-outline-warning" *ngIf="this.selectedTask.importance !== 'important'" (click)="changeImportance('important', this.selectedTask.id)">{{ 'importance.important' | translate }}</button>
+          <button class="btn btn-warning" *ngIf="this.selectedTask.importance == 'important'">{{ 'importance.important' | translate }}</button>
 
-          <button class="btn btn-outline-danger" *ngIf="this.selectedTask.importance !== 'tres_important'" (click)="changeImportance('tres_important', this.selectedTask.id)">très important</button>
-          <button class="btn btn-danger" *ngIf="this.selectedTask.importance == 'tres_important'">très important</button>
+          <button class="btn btn-outline-danger" *ngIf="this.selectedTask.importance !== 'tres_important'" (click)="changeImportance('tres_important', this.selectedTask.id)">{{ 'importance.tres_important' | translate }}</button>
+          <button class="btn btn-danger" *ngIf="this.selectedTask.importance == 'tres_important'">{{ 'importance.tres_important' | translate }}</button>
           
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="sauvegardeModal()">Sauvegarder</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="sauvegardeModal()">{{ 'modal.sauvegarder' | translate }}</button>
         </div>
       </div>
     </div>
   </div>
   
   <div class="btnContainer">
-    <button class="btn btn-warning" (click)="clear()">Tout effacer</button>
+    <button class="btn btn-warning" (click)="clear()">{{ 'form.clear_button' | translate }}</button>
   </div>
   
 

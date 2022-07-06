@@ -1,0 +1,37 @@
+{
+    "header": {
+        "title": "My To Do List",
+        "subtitle": "Add your tasks here, manage and delete them.",
+        "daymode_button": "day mode",
+        "nightmode_button": "night mode"
+    },
+    "form": {
+        "input_placeholder": "New task..",
+        "choose_importance": "choose importance",
+        "add_button": "Add",
+        "delete_button": "Delete",
+        "edit_button": "Edit",
+        "pause_button": "Pause",
+        "resume_button": "Resume",
+        "clear_button": "Clear All"
+    },
+    "importance": {
+        "a_faire": "to do",
+        "negligeable": "negligible",
+        "important": "important",
+        "tres_important": "very important"
+    },
+    "modal": {
+        "title": "Task title :",
+        "status": "Status :",
+        "sauvegarder": "Save"
+    },
+    "else_block": {
+        "title": "Nothing planned..",
+        "subtitle": "Time to start something !"
+    },
+    "task": {
+        "finie": "done",
+        "a_finir": "to do"
+    }
+}
