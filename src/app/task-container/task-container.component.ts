@@ -49,7 +49,6 @@ export class TaskContainerComponent implements OnInit {
     '../../assets/gif/darkrai.gif',
     '../../assets/gif/giratina.gif',
     '../../assets/gif/carchacroc.gif',
-    '../../assets/gif/yveltal.gif',
     '../../assets/gif/libegon.gif'
   ];
 
