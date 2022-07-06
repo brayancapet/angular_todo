@@ -1,28 +1,25 @@
 # TodoApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.7.
+## What use can you make of my to-do-list ?
 
-## Development server
+1. You'll be able to use the project in French, in English and in Italian.
+2. You'll then be able to create a task and :
+..* Display it,
+..* Edit it (changing the content of the task as well as changing the importance),
+..* Give it an importance (such as 'important', 'very important', 'negligible'...),
+..* Mark it as done,
+..* Put the task on pause and resume it if needed,
+..* Delete a task as well as clearing all tasks,
+..* Obviously, all the tasks, their content, state, importance etc. are stored in your computer's local storage.
+3. You'll have the choice between night mode or day mode, which will be stored in your local storage as well so that you have your own preerences stored.
+4. A random pokemon will give you its strength by staying at the top of the page, and it will change everytime you reload the page/open the project.
+5. 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## What if i want to use this to-do-list for my personal use ?
+> The to-do-list is free of use for everybody for a personal use, i enjoyed doing it and i hope people will enjoy using it and will send me feedback to try and make something great out of such a simple web project.
+> I will now tell you what you need to do to run this project :
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-# angular_todo
+# First of all, you'll need to download the angular cli by doing `npm install -g @angular/cli`
+# Then you'll need to pull the project and go into it by doing a `git pull <projectHttp/projectSSH>`
+# Then, go to the directory by doing `cd <pathToProject>`
+# and to finish, launch the project with `ng serve -o`
