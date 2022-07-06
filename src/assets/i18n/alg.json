@@ -1,0 +1,37 @@
+{
+    "header": {
+        "title": "قائمة المهام الخاصة بي",
+        "subtitle": "إنشاء وإدارة وحذف المهام",
+        "daymode_button": "وضع الضوء",
+        "nightmode_button": "وضع الليل"
+    },
+    "form": {
+        "input_placeholder": "مهمة جديدة",
+        "choose_importance": "اختر الأهمية",
+        "add_button": "يضيف",
+        "delete_button": "حذف",
+        "edit_button": "تعديل",
+        "pause_button": "وقفة",
+        "resume_button": "استمر",
+        "clear_button": "حذف الكل"
+    },
+    "importance": {
+        "a_faire": "لكى يفعل",
+        "negligeable": "غير مهم",
+        "important": "مهم",
+        "tres_important": "مهم جدا"
+    },
+    "modal": {
+        "title": ": عنوان المهمة",
+        "status": ": الحالة",
+        "sauvegarder": "حفظ"
+    },
+    "else_block": {
+        "title": "..لا شيء مخطط",
+        "subtitle": "! حان الوقت لبدء شيء ما"
+    },
+    "task": {
+        "finie": "تم الانتهاء",
+        "a_finir": "لكى يفعل"
+    }
+}
