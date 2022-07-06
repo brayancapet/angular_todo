@@ -19,7 +19,7 @@
 > The to-do-list is free of use for everybody for a personal use, i enjoyed doing it and i hope people will enjoy using it and will send me feedback to try and make something great out of such a simple web project.
 > I will now tell you what you need to do to run this project :
 
-# First of all, you'll need to download the angular cli by doing `npm install -g @angular/cli`
-# Then you'll need to pull the project and go into it by doing a `git pull <projectHttp/projectSSH>`
-# Then, go to the directory by doing `cd <pathToProject>`
-# and to finish, launch the project with `ng serve -o`
+#### First of all, you'll need to download the angular cli by doing `npm install -g @angular/cli`
+#### Then you'll need to pull the project and go into it by doing a `git pull <projectHttp/projectSSH>`
+#### Then, go to the directory by doing `cd <pathToProject>`
+#### and to finish, launch the project with `ng serve -o`
