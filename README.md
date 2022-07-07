@@ -2,7 +2,7 @@
 
 ## What use can you make of my to-do-list ?
 
-1. You'll be able to use the project in French, in English and in Italian.
+1. You'll be able to use the project in French, English, Italian and Arabic (using translator for Arabic, it is not the best version possible).
 2. You'll then be able to create a task and :
 * Display it
 * Edit it (changing the content of the task as well as changing the importance),
