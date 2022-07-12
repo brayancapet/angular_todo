@@ -67,10 +67,18 @@ export class TaskContainerComponent implements OnInit {
 
   getTasks(){
   this.tasks = JSON.parse(localStorage.getItem('tasks') || '{}');
+  if(this.tasks.values == undefined){
+    this.tasks = [];
+    this.saveToLocalStorage();
+  }
   }
 
   getNightMode(){
     this.nightMode = JSON.parse(localStorage.getItem('nightMode') || '{}');
+    if(this.nightMode !== false && this.nightMode !== true){
+      this.nightMode = false;
+      this.saveToLocalStorage();
+    }
   }
 
   clear(){
@@ -103,7 +111,7 @@ export class TaskContainerComponent implements OnInit {
       onHold: false
     };
 
-    if(this.tasks.length !== 0){
+    if(this.tasks.length !== 0 && this.tasks !== null){
       temporaryTask.id = this.tasks.slice(-1)[0].id + 1;
       let newTaskSplit = newTask.split(' ');
       temporaryTask.importance = newTaskSplit.slice(-1)[0];
@@ -180,10 +188,7 @@ export class TaskContainerComponent implements OnInit {
 
   randomPokemon(){
    let random = Math.floor(Math.random() * (this.pokemon_gif.length - 1));
-
-   console.log(random);
    this.selectedPokemonGif = this.pokemon_gif[random];
-   console.log(this.selectedPokemonGif);
   }
 
   changeImportance(importance: string, id: number){

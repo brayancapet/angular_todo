@@ -36,7 +36,7 @@ export class AddTaskFormComponent implements OnInit {
   }
 
   addTask(inputValue: string, importance: string){
-    console.log(importance);
+    console.log(inputValue , importance);
     this.newTask.emit(inputValue + ' ' + importance);
   }
 
